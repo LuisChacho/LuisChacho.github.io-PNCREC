@@ -19,10 +19,9 @@
   padding: 0;
   user-select: none !important;
   -webkit-user-select: none !important;
-  -webkit-touch-callout: none !important; /* Deshabilita menú contextual en iOS/Android */
+  -webkit-touch-callout: none !important;
 }
 
-/* Oscurece/oculta el contenido si se intenta screenshot con overlay de grabación o al perder foco */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
@@ -51,6 +50,61 @@ body.blur-protected {
 
 .hidden {
   display: none !important;
+}
+
+/* Tarjeta de Bloqueo por IP */
+.ip-block-card {
+  background: #fef2f2;
+  border: 1.5px solid #fca5a5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ip-block-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.ip-block-card h3 {
+  color: #991b1b;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.ip-block-card p {
+  color: #7f1d1d;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.ip-details {
+  background: #fff;
+  border: 1px solid #fecaca;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.ip-contact-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.attempts-badge-box {
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: var(--dark-navy);
 }
 
 /* Pantalla de Inicio / Registro */
@@ -386,6 +440,11 @@ body.blur-protected {
   background: var(--primary-hover);
 }
 
+.btn-primary-lg:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+}
+
 /* Resultados */
 .result-container {
   max-width: 900px;
@@ -481,6 +540,12 @@ body.blur-protected {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+.btn-retry:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
 }
 
 .feedback-section-title {

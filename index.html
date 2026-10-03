@@ -20,18 +20,35 @@
       <h1>RAZONAMIENTO NUMÉRICO (RECUPERACIÓN)</h1>
       <h2>EVALUACIÓN ESTANDARIZADA BGU / PREUNIVERSITARIO UNL</h2>
       
+      <!-- MENSAJE DE BLOQUEO POR LÍMITE DE INTENTOS -->
+      <div id="ip-blocked-msg" class="ip-block-card hidden">
+        <div class="ip-block-icon">🚫</div>
+        <h3>ACCESO BLOQUEADO POR LÍMITE DE INTENTOS</h3>
+        <p>Has alcanzado el número máximo permitido de intentos (2) desde tu dirección IP / Dispositivo.</p>
+        <div class="ip-details">
+          <strong>Dirección IP Registrada:</strong> <span id="blocked-ip-display">Cargando...</span><br>
+          <strong>Estado:</strong> Sin intentos disponibles.
+        </div>
+        <p class="ip-contact-note">Si consideras que esto es un error, contacta al docente encargado.</p>
+      </div>
+
       <form id="start-form">
         <div class="form-group">
           <label for="student-name">Nombre y Apellidos del Estudiante:</label>
           <input type="text" id="student-name" class="form-input" placeholder="Ej. Juan Carlos Pérez" required autocomplete="off">
         </div>
 
+        <div class="attempts-badge-box">
+          <span>Intento actual: <strong id="attempt-count-display">1 / 2</strong></span>
+        </div>
+
         <div class="instructions">
           <p><strong>Instrucciones y Protocolo de Seguridad Estricto:</strong></p>
           <ul>
             <li><strong>Tiempo:</strong> 50 minutos para 50 reactivos (1 min/pregunta).</li>
-            <li><strong>Respuestas:</strong> La posición de la opción correcta cambia alternadamente en cada pregunta (A, B, C o D).</li>
-            <li><strong>Seguridad Móvil/PC:</strong> Bloqueo de capturas de pantalla, capturas táctiles, copia de texto y cambio de aplicación/pestaña. 3 infracciones suspenden el examen.</li>
+            <li><strong>Aleatorización Completa:</strong> Las opciones A, B, C y D se ordenan de forma 100% aleatoria en cada intento.</li>
+            <li><strong>Límite de Intentos:</strong> Máximo 2 intentos por IP / dispositivo. Superado el límite, el acceso se bloquea.</li>
+            <li><strong>Seguridad Móvil/PC:</strong> Bloqueo de capturas de pantalla, copia de texto y cambio de pestaña/app. 3 infracciones suspenden el examen.</li>
           </ul>
         </div>
 
@@ -105,7 +122,8 @@
         <div style="margin: 16px 0;">
           <div class="student-info-box">
             <strong>Estudiante:</strong> <span id="report-student-name">-</span><br>
-            <strong>Fecha/Hora de Intento:</strong> <span id="report-date">-</span>
+            <strong>Fecha/Hora de Intento:</strong> <span id="report-date">-</span><br>
+            <strong>Dirección IP:</strong> <span id="report-ip">-</span>
           </div>
         </div>
 
@@ -127,7 +145,7 @@
           </button>
           
           <button id="btn-retry-exam" class="btn-retry">
-            🔄 Rendir Nuevamente
+            🔄 Rendir Nuevamente (Segundo e Último Intento)
           </button>
         </div>
       </div>
