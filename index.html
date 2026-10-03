@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Razonamiento Numérico Avanzado - BGU / UNL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Razonamiento Numérico - Recuperación BGU / UNL</title>
 
   <!-- KaTeX para renderizado de fórmulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
@@ -11,10 +11,13 @@
 </head>
 <body>
 
+  <!-- CAPA DE PROTECCIÓN ANTI-CAPTURA DE PANTALLA -->
+  <div id="secure-screen-overlay" class="security-watermark"></div>
+
   <!-- REGISTRO Y FORMULARIO INICIAL -->
   <div id="start-screen" class="overlay-card">
     <div class="card-body">
-      <h1>RAZONAMIENTO NUMÉRICO AVANZADO</h1>
+      <h1>RAZONAMIENTO NUMÉRICO (RECUPERACIÓN)</h1>
       <h2>EVALUACIÓN ESTANDARIZADA BGU / PREUNIVERSITARIO UNL</h2>
       
       <form id="start-form">
@@ -24,16 +27,15 @@
         </div>
 
         <div class="instructions">
-          <p><strong>Instrucciones y Protocolo:</strong></p>
+          <p><strong>Instrucciones y Protocolo de Seguridad Estricto:</strong></p>
           <ul>
-            <li><strong>Tiempo:</strong> 60 minutos para resolver 50 reactivos.</li>
-            <li><strong>Navegación:</strong> Libre entre preguntas y revisión final.</li>
-            <li><strong>Autoguardado:</strong> Tus respuestas se conservan si recargas o pierdes conexión.</li>
-            <li><strong>Seguridad:</strong> Bloqueo de copiar/pegar y 3 infracciones para suspensión.</li>
+            <li><strong>Tiempo:</strong> 50 minutos para 50 reactivos (1 min/pregunta).</li>
+            <li><strong>Respuestas:</strong> La posición de la opción correcta cambia alternadamente en cada pregunta (A, B, C o D).</li>
+            <li><strong>Seguridad Móvil/PC:</strong> Bloqueo de capturas de pantalla, capturas táctiles, copia de texto y cambio de aplicación/pestaña. 3 infracciones suspenden el examen.</li>
           </ul>
         </div>
 
-        <button type="submit" id="btn-start" class="btn-primary-lg">INICIAR PRUEBA AHORA</button>
+        <button type="submit" id="btn-start" class="btn-primary-lg">INICIAR EVALUACIÓN DE RECUPERACIÓN</button>
       </form>
     </div>
   </div>
@@ -42,15 +44,15 @@
   <div id="exam-app" class="app-layout hidden">
     <header class="top-header">
       <div class="brand-info">
-        <h1 class="brand-title">RAZONAMIENTO NUMÉRICO AVANZADO</h1>
+        <h1 class="brand-title">RAZONAMIENTO NUMÉRICO - RECUPERACIÓN</h1>
         <span class="brand-subtitle" id="active-student-display">Estudiante: -</span>
       </div>
       <div class="timer-badge">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
+          <polyline points="12 6 12 16 14"></polyline>
         </svg>
-        <span id="timer-text">60:00</span>
+        <span id="timer-text">50:00</span>
       </div>
     </header>
 
@@ -98,7 +100,7 @@
     <div class="result-container">
       <div class="result-card-header">
         <span id="status-badge" class="status-badge normal">Evaluación Finalizada</span>
-        <h2>Reporte Oficial de Evaluación</h2>
+        <h2>Reporte Oficial - Prueba de Recuperación</h2>
         
         <div style="margin: 16px 0;">
           <div class="student-info-box">

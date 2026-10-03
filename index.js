@@ -1,59 +1,58 @@
-// BANCO COMPLETO DE PREGUNTAS (50 REACTIVOS DE NUMÉRICO)
+// BANCO DE RECUPERACIÓN (50 REACTIVOS CON RESPUESTAS CORRECTAS DIVERSIFICADAS A, B, C, D)
 const questionsBank = [
-  { id: 1, topic: "Simplificación Algebraica", q: "Simplifique la expresión: $$\\frac{(2^3 \\cdot 4^{-1})^2}{8^{-1}}$$", options: ["16", "32", "8", "64"], correct: 1, explanation: "Transformando a base 2: $\\frac{(2^3 \\cdot 2^{-2})^2}{2^{-3}} = \\frac{(2^1)^2}{2^{-3}} = \\frac{2^2}{2^{-3}} = 2^{2 - (-3)} = 2^5 = 32$." },
-  { id: 2, topic: "Simplificación Algebraica", q: "Al reducir $\\sqrt[3]{x^6 y^9 z^{12}}$, se obtiene:", options: ["$x y z$", "$x^2 y^3 z^4$", "$x^3 y^3 z^3$", "$x^2 y^2 z^2$"], correct: 1, explanation: "Se dividen los exponentes entre el índice del radical (3): $x^{6/3} y^{9/3} z^{12/3} = x^2 y^3 z^4$." },
-  { id: 3, topic: "Simplificación Algebraica", q: "Reduzca la expresión: $$\\frac{x^5 \\cdot x^{-2}}{x^{-4}}$$", options: ["$x^7$", "$x^{-1}$", "$x^3$", "$x^9$"], correct: 0, explanation: "Aplicando propiedades de exponentes: $\\frac{x^{5+(-2)}}{x^{-4}} = \\frac{x^3}{x^{-4}} = x^{3 - (-4)} = x^7$." },
-  { id: 4, topic: "Jerarquía de Operadores", q: "Resuelva la siguiente operación: $$12 - 3 \\cdot (4 - 2^2) + 8 \\div 2$$", options: ["16", "12", "8", "20"], correct: 0, explanation: "Primero paréntesis: $4 - 2^2 = 0$. Luego multiplicación/división: $12 - 3(0) + (8 \\div 2) = 12 - 0 + 4 = 16$." },
-  { id: 5, topic: "Jerarquía de Operadores", q: "Determine el resultado de: $$5 + 2 \\cdot [3 + 4 \\cdot (2 - 5)]$$", options: ["-13", "-15", "10", "23"], correct: 0, explanation: "Paréntesis: $2 - 5 = -3$. Corchetes: $3 + 4(-3) = -9$. Final: $5 + 2(-9) = 5 - 18 = -13$." },
-  { id: 6, topic: "Jerarquía de Operadores", q: "Calcule: $$\\frac{18 - 2 \\cdot 3^2}{4 + 2}$$", options: ["0", "1", "-1", "3"], correct: 0, explanation: "Numerador: $18 - 2(9) = 18 - 18 = 0$. Resultado: $0 / 6 = 0$." },
-  { id: 7, topic: "Expresiones Algebraicas", q: "Al factorizar $x^2 - 9y^2$, se obtiene:", options: ["$(x-3y)^2$", "$(x+3y)(x-3y)$", "$(x+9y)(x-y)$", "$x(x-9y)$"], correct: 1, explanation: "Diferencia de cuadrados: $a^2 - b^2 = (a+b)(a-b)$. En este caso $(x+3y)(x-3y)$." },
-  { id: 8, topic: "Expresiones Algebraicas", q: "Desarrolle el binomio $(2x - 3y)^2$:", options: ["$4x^2 - 9y^2$", "$4x^2 - 12xy + 9y^2$", "$4x^2 + 12xy + 9y^2$", "$2x^2 - 6xy + 3y^2$"], correct: 1, explanation: "Binomio al cuadrado: $(a-b)^2 = a^2 - 2ab + b^2 = 4x^2 - 12xy + 9y^2$." },
-  { id: 9, topic: "Expresiones Algebraicas", q: "Factorice el trinomio $x^2 - 5x + 6$:", options: ["$(x-2)(x-3)$", "$(x+2)(x+3)$", "$(x-6)(x+1)$", "$(x+6)(x-1)$"], correct: 0, explanation: "Buscamos números que multiplicados den $+6$ y sumados $-5$: $-2$ y $-3$." },
-  { id: 10, topic: "Expresiones Algebraicas", q: "Simplifique la fracción algebraica $$\\frac{x^2 - 16}{x + 4}$$", options: ["$x + 4$", "$x - 4$", "$x - 16$", "$4x$"], correct: 1, explanation: "Factorizando el numerador: $\\frac{(x+4)(x-4)}{x+4} = x - 4$." },
-  { id: 11, topic: "Expresiones Algebraicas", q: "Evalúe la expresión $2a^2 - 3ab + b^2$ para $a = 2$ y $b = -1$:", options: ["11", "15", "7", "3"], correct: 1, explanation: "Sustituyendo: $2(2)^2 - 3(2)(-1) + (-1)^2 = 8 + 6 + 1 = 15$." },
-  { id: 12, topic: "Ecuaciones Planteamiento", q: "Resuelva la ecuación: $$3(x - 2) + 4 = 2(x + 5)$$", options: ["$x = 12$", "$x = 10$", "$x = 8$", "$x = 6$"], correct: 0, explanation: "$3x - 6 + 4 = 2x + 10 \\Rightarrow 3x - 2 = 2x + 10 \\Rightarrow x = 12$." },
-  { id: 13, topic: "Ecuaciones Planteamiento", q: "Un número aumentado en su tercera parte equivale a 40. ¿Cuál es el número?", options: ["30", "24", "36", "27"], correct: 0, explanation: "Planteamiento: $x + \\frac{x}{3} = 40 \\Rightarrow \\frac{4x}{3} = 40 \\Rightarrow x = 30$." },
-  { id: 14, topic: "Ecuaciones Planteamiento", q: "La suma de tres números enteros consecutivos es 72. ¿Cuál es el número mayor?", options: ["23", "24", "25", "26"], correct: 2, explanation: "$x + (x+1) + (x+2) = 72 \\Rightarrow 3x = 69 \\Rightarrow x = 23$. El mayor es $25$." },
-  { id: 15, topic: "Ecuaciones Planteamiento", q: "Resuelva para $x$: $$\\frac{2x - 1}{3} = \\frac{x + 4}{2}$$", options: ["$x = 14$", "$x = 10$", "$x = 12$", "$x = 8$"], correct: 0, explanation: "$2(2x - 1) = 3(x + 4) \\Rightarrow 4x - 2 = 3x + 12 \\Rightarrow x = 14$." },
-  { id: 16, topic: "Ecuaciones Planteamiento", q: "Si al doble de un número se le resta 15, se obtiene el triple del mismo número disminuido en 20. El número es:", options: ["5", "10", "15", "20"], correct: 0, explanation: "$2x - 15 = 3x - 20 \\Rightarrow -15 + 20 = 3x - 2x \\Rightarrow x = 5$." },
-  { id: 17, topic: "Ecuaciones Planteamiento", q: "Dos mochilas cuestan juntas $90. Si una cuesta $20 más que la otra, ¿cuánto cuesta la más cara?", options: ["$55", "$35", "$60", "$50"], correct: 0, explanation: "$x + (x + 20) = 90 \\Rightarrow 2x = 70 \\Rightarrow x = 35$. La más cara cuesta $35 + 20 = 55$." },
-  { id: 18, topic: "Ecuaciones Planteamiento", q: "En un examen de 50 preguntas, cada acierto suma 4 puntos y cada error resta 2. Un estudiante obtuvo 138 puntos respondiendo 45 preguntas. ¿Cuántas respondió correctamente?", options: ["36", "38", "34", "40"], correct: 1, explanation: "Ecuación: $4C - 2(45-C) = 138 \\Rightarrow 6C = 228 \\Rightarrow C = 38$ aciertos." },
-  { id: 19, topic: "Ecuaciones Planteamiento", q: "La suma de dos números es 100 y su diferencia es 36. ¿Cuál es el número mayor?", options: ["68", "64", "72", "58"], correct: 0, explanation: "$\\frac{\\text{Suma} + \\text{Diferencia}}{2} = \\frac{100 + 36}{2} = 68$." },
-  { id: 20, topic: "Ecuaciones Planteamiento", q: "Un padre tiene cuatro veces la edad de su hijo. Si la suma de sus edades es 50 años, ¿cuántos años tiene el hijo?", options: ["10", "12", "8", "15"], correct: 0, explanation: "$4x + x = 50 \\Rightarrow 5x = 50 \\Rightarrow x = 10$ años." },
-  { id: 21, topic: "Ecuaciones Planteamiento", q: "Si se resta 8 al triple de un número, se obtiene el doble del mismo número sumado con 12. Halle el número.", options: ["20", "15", "25", "18"], correct: 0, explanation: "$3x - 8 = 2x + 12 \\Rightarrow x = 20$." },
-  { id: 22, topic: "Ecuaciones Planteamiento", q: "Se reparten $450 entre tres personas de modo que la segunda recibe el doble que la primera y la tercera el triple que la primera. ¿Cuánto recibe la primera?", options: ["$75", "$150", "$225", "$50"], correct: 0, explanation: "$x + 2x + 3x = 450 \\Rightarrow 6x = 450 \\Rightarrow x = 75$." },
-  { id: 23, topic: "Sistema de Ecuaciones", q: "En el sistema $2x + 3y = 13$ y $x - y = 4$, el valor de $x$ es:", options: ["5", "1", "3", "7"], correct: 0, explanation: "$x = y + 4 \\Rightarrow 2(y+4) + 3y = 13 \\Rightarrow 5y = 5 \\Rightarrow y = 1 \\Rightarrow x = 5$." },
-  { id: 24, topic: "Cálculo de Edades", q: "La edad de Juan es el doble de la de Pedro. Si sus edades suman 36 años, ¿qué edad tiene Pedro?", options: ["12 años", "24 años", "18 años", "10 años"], correct: 0, explanation: "$2x + x = 36 \\Rightarrow 3x = 36 \\Rightarrow x = 12$ años." },
-  { id: 25, topic: "Cálculo de Edades", q: "Hace 5 años la edad de María era el triple de la de Ana. Si hoy suman 30 años, ¿cuál es la edad actual de María?", options: ["20 años", "10 años", "15 años", "22 años"], correct: 0, explanation: "Hace 5 años sumaban $20$: $3x + x = 20 \\Rightarrow x = 5$. María tenía 15, hoy tiene 20 años." },
-  { id: 26, topic: "Cálculo de Edades", q: "Hace $n$ años la edad de Lucía era $k$ veces la de Sofía. Hoy la edad de Lucía es el doble de la de Sofía. Halle la edad actual de Sofía:", options: ["$$\\frac{n(k-1)}{k-2}$$", "$$\\frac{nk}{k-1}$$", "$$\\frac{n(k+1)}{k}$$", "$$\\frac{2nk}{k-1}$$"], correct: 0, explanation: "Planteando la relación algebraica: $2S - n = k(S - n) \\Rightarrow S = \\frac{n(k-1)}{k-2}$." },
-  { id: 27, topic: "Razones y Proporciones", q: "La razón entre dos números es 3:5. Si el menor es 18, ¿cuál es el número mayor?", options: ["30", "25", "40", "35"], correct: 0, explanation: "$\\frac{3}{5} = \\frac{18}{x} \\Rightarrow 3x = 90 \\Rightarrow x = 30$." },
-  { id: 28, topic: "Razones y Proporciones", q: "En una clase, la relación de hombres a mujeres es de 4 a 5. Si hay 20 hombres, ¿cuántas mujeres hay?", options: ["25", "30", "15", "28"], correct: 0, explanation: "$\\frac{4}{5} = \\frac{20}{M} \\Rightarrow 4M = 100 \\Rightarrow M = 25$." },
-  { id: 29, topic: "Razones y Proporciones", q: "Si $a:b = 2:3$ y $b:c = 4:5$, halle la relación $a:c$:", options: ["8:15", "2:5", "6:8", "3:5"], correct: 0, explanation: "$\\frac{a}{c} = \\frac{2}{3} \\cdot \\frac{4}{5} = \\frac{8}{15}$." },
-  { id: 30, topic: "Razones y Proporciones", q: "Dos números están en la proporción 7:2. Si su diferencia es 25, halle el número menor.", options: ["10", "35", "5", "15"], correct: 0, explanation: "$7k - 2k = 25 \\Rightarrow 5k = 25 \\Rightarrow k = 5$. Menor = $2(5) = 10$." },
-  { id: 31, topic: "Regla de 3 Compuesta", q: "Si 6 obreros construyen un muro en 10 días trabajando 8 h/día, ¿cuántos días tardarán 8 obreros trabajando 6 h/día?", options: ["10 días", "8 días", "12 días", "6 días"], correct: 0, explanation: "Horas totales = $6 \\cdot 10 \\cdot 8 = 480$. Para 8 obreros a 6 h/día: $480 / 48 = 10$ días." },
-  { id: 32, topic: "Regla de 3 Compuesta", q: "Si 5 grifos abiertos 4 horas diarias vierten 2000 litros, ¿cuántos litros verterán 3 grifos abiertos 5 horas diarias?", options: ["1500 L", "1200 L", "1800 L", "2000 L"], correct: 0, explanation: "$\\frac{2000}{20} = \\frac{x}{15} \\Rightarrow x = 1500$ Litros." },
-  { id: 33, topic: "Regla de 3 Compuesta", q: "Para pavimentar 180 m, 9 peones tardan 6 días. ¿Cuántos días tardarán 12 peones para pavimentar 200 m?", options: ["5 días", "4 días", "6 días", "8 días"], correct: 0, explanation: "$\\frac{9 \\cdot 6}{180} = \\frac{12 \\cdot d}{200} \\Rightarrow d = 5$ días." },
-  { id: 34, topic: "Porcentajes y Proporcionalidad", q: "¿Cuál es el 15% de 240?", options: ["36", "40", "30", "42"], correct: 0, explanation: "$240 \\cdot 0.15 = 36$." },
-  { id: 35, topic: "Porcentajes y Proporcionalidad", q: "Un artículo cuesta $120. Si se le aplica un descuento del 20% y luego un recargo del 10%, ¿cuál es su precio final?", options: ["$105.60", "$108.00", "$112.00", "$96.00"], correct: 0, explanation: "Descuento: $120 \\times 0.80 = 96$. Recargo: $96 \\times 1.10 = 105.60$." },
-  { id: 36, topic: "Porcentajes y Proporcionalidad", q: "Halle la media proporcional entre 4 y 16.", options: ["8", "10", "6", "12"], correct: 0, explanation: "$x = \\sqrt{4 \\cdot 16} = \\sqrt{64} = 8$." },
-  { id: 37, topic: "Porcentajes y Proporcionalidad", q: "Calcule la tercera proporcional entre 3 y 9.", options: ["27", "18", "21", "12"], correct: 0, explanation: "$\\frac{3}{9} = \\frac{9}{x} \\Rightarrow 3x = 81 \\Rightarrow x = 27$." },
-  { id: 38, topic: "Porcentajes y Proporcionalidad", q: "En un examen de 80 preguntas, un estudiante responde correctamente 64. ¿Qué porcentaje de aciertos obtuvo?", options: ["80%", "75%", "85%", "70%"], correct: 0, explanation: "$\\frac{64}{80} = 0.80 = 80\\%$." },
-  { id: 39, topic: "Media Aritmética", q: "La media de cinco números es 12. Si cuatro son 8, 10, 14 y 16, ¿cuál es el quinto?", options: ["12", "10", "15", "18"], correct: 0, explanation: "Suma total = $5 \\times 12 = 60$. Suma parcial = $48$. Quinto = $60 - 48 = 12$." },
-  { id: 40, topic: "Media Aritmética", q: "Notas: 8, 7 y 9. ¿Qué nota en el cuarto examen da un promedio de 8.5?", options: ["10", "9", "9.5", "8.5"], correct: 0, explanation: "Suma requerida = $4 \\times 8.5 = 34$. Suma actual = $24$. Requerido = $10$." },
-  { id: 41, topic: "Combinatoria y Permutación", q: "¿De cuántas maneras diferentes se pueden organizar 5 libros en un estante?", options: ["120", "60", "24", "720"], correct: 0, explanation: "Permutación: $5! = 120$." },
-  { id: 42, topic: "Combinatoria y Permutación", q: "Comité de 3 personas de 7 candidatos. ¿Cuántos comités distintos existen?", options: ["35", "210", "42", "70"], correct: 0, explanation: "$C(7,3) = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$." },
-  { id: 43, topic: "Combinatoria y Permutación", q: "Carrera de 8 atletas. Formas de ocupar los 3 primeros lugares:", options: ["336", "56", "120", "504"], correct: 0, explanation: "Variación: $P(8,3) = 8 \\times 7 \\times 6 = 336$." },
-  { id: 44, topic: "Combinatoria y Permutación", q: "¿Cuántos números de 2 cifras distintas se forman con 1, 3, 5 y 7?", options: ["12", "16", "24", "8"], correct: 0, explanation: "$4 \\times 3 = 12$." },
-  { id: 45, topic: "Combinatoria y Permutación", q: "Combinaciones al tomar 2 elementos de 6:", options: ["15", "30", "12", "36"], correct: 0, explanation: "$C(6,2) = \\frac{6 \\times 5}{2} = 15$." },
-  { id: 46, topic: "Combinatoria y Permutación", q: "Cuatro amigos en mesa circular:", options: ["6", "24", "12", "18"], correct: 0, explanation: "Permutación circular: $(4-1)! = 3! = 6$." },
-  { id: 47, topic: "Combinatoria y Permutación", q: "Ordenamientos de la palabra 'CASA':", options: ["12", "24", "6", "4"], correct: 0, explanation: "Permutación con repetición: $\\frac{4!}{2!} = 12$." },
-  { id: 48, topic: "Combinatoria y Permutación", q: "10 jugadores de ajedrez juegan todos contra todos. Total de partidas:", options: ["45", "90", "20", "100"], correct: 0, explanation: "$C(10,2) = \\frac{10 \\times 9}{2} = 45$." },
-  { id: 49, topic: "Combinatoria y Permutación", q: "Saludos entre 6 personas:", options: ["15", "30", "12", "36"], correct: 0, explanation: "$C(6,2) = 15$." },
-  { id: 50, topic: "Combinatoria y Permutación", q: "PIN de 3 dígitos distintos del 1 al 9:", options: ["504", "84", "729", "256"], correct: 0, explanation: "$9 \\times 8 \\times 7 = 504$." }
+  { id: 1, topic: "Simplificación Algebraica", q: "Simplifique la siguiente expresión numérica: $$\\frac{(3^2 \\cdot 9^{-1})^3}{27^{-1}}$$", options: ["81", "9", "27", "3"], correct: 2, explanation: "Expresando en base 3: $\\frac{(3^2 \\cdot 3^{-2})^3}{3^{-3}} = \\frac{(3^0)^3}{3^{-3}} = \\frac{1}{3^{-3}} = 3^3 = 27$ (Opción C)." },
+  { id: 2, topic: "Simplificación Algebraica", q: "Al simplificar la expresión $$\\sqrt[4]{a^8 b^{12} c^{16}}$$, se obtiene:", options: ["$a^2 b^3 c^4$", "$a b^2 c^3$", "$a^4 b^3 c^2$", "$a^2 b^2 c^2$"], correct: 0, explanation: "Dividiendo exponentes entre 4: $a^{8/4} b^{12/4} c^{16/4} = a^2 b^3 c^4$ (Opción A)." },
+  { id: 3, topic: "Simplificación Algebraica", q: "Reduzca la siguiente fracción exponencial: $$\\frac{y^{-3} \\cdot y^8}{y^{-2}}$$", options: ["$y^3$", "$y^7$", "$y^{-7}$", "$y^5$"], correct: 1, explanation: "Sumando y restando exponentes: $\\frac{y^{5}}{y^{-2}} = y^{5 - (-2)} = y^7$ (Opción B)." },
+  { id: 4, topic: "Jerarquía de Operadores", q: "Determine el resultado numérico de: $$15 - 2 \\cdot (5 - 3^2) + 12 \\div 4$$", options: ["18", "22", "14", "26"], correct: 3, explanation: "Paréntesis: $5 - 9 = -4$. Jerarquía: $15 - 2(-4) + 3 = 15 + 8 + 3 = 26$ (Opción D)." },
+  { id: 5, topic: "Jerarquía de Operadores", q: "Calcule el valor de: $$8 + 3 \\cdot [2 - 5 \\cdot (1 - 4)]$$", options: ["45", "59", "37", "51"], correct: 1, explanation: "Paréntesis: $1-4 = -3$. Corchetes: $2 - 5(-3) = 17$. Final: $8 + 3(17) = 59$ (Opción B)." },
+  { id: 6, topic: "Jerarquía de Operadores", q: "Resuelva la expresión: $$\\frac{24 - 3 \\cdot 2^3}{5 - 2}$$", options: ["0", "2", "4", "1"], correct: 0, explanation: "Numerador: $24 - 3(8) = 0$. $0/3 = 0$ (Opción A)." },
+  { id: 7, topic: "Expresiones Algebraicas", q: "Al factorizar la diferencia de cuadrados $4x^2 - 25y^2$, resulta:", options: ["$(2x - 5y)^2$", "$(4x + 25y)(x - y)$", "$(2x + 5y)(2x - 5y)$", "$(2x + 25y)(2x - y)$"], correct: 2, explanation: "Aplicando $a^2 - b^2 = (a+b)(a-b) \\Rightarrow (2x + 5y)(2x - 5y)$ (Opción C)." },
+  { id: 8, topic: "Expresiones Algebraicas", q: "Desarrolle el binomio al cuadrado $(3x - 2y)^2$:", options: ["$9x^2 - 4y^2$", "$9x^2 + 12xy + 4y^2$", "$3x^2 - 6xy + 2y^2$", "$9x^2 - 12xy + 4y^2$"], correct: 3, explanation: "$(a-b)^2 = a^2 - 2ab + b^2 \\Rightarrow 9x^2 - 12xy + 4y^2$ (Opción D)." },
+  { id: 9, topic: "Expresiones Algebraicas", q: "Factorice completamente el trinomio $x^2 - 7x + 12$:", options: ["$(x - 3)(x - 4)$", "$(x + 3)(x + 4)$", "$(x - 6)(x - 2)$", "$(x - 12)(x + 1)$"], correct: 0, explanation: "Buscamos números que sumen $-7$ y multipliquen $+12$: $-3$ y $-4$ (Opción A)." },
+  { id: 10, topic: "Expresiones Algebraicas", q: "Simplifique la fracción algebraica $$\\frac{x^2 - 25}{x - 5}$$", options: ["$x - 5$", "$x + 5$", "$x + 25$", "$5x$"], correct: 1, explanation: "$\\frac{(x-5)(x+5)}{x-5} = x + 5$ (Opción B)." },
+  { id: 11, topic: "Expresiones Algebraicas", q: "Calcule el valor numérico de $3m^2 - 2mn + n^2$ para $m = -1$ y $n = 3$:", options: ["12", "15", "18", "21"], correct: 2, explanation: "$3(-1)^2 - 2(-1)(3) + (3)^2 = 3 + 6 + 9 = 18$ (Opción C)." },
+  { id: 12, topic: "Ecuaciones Planteamiento", q: "Resuelva la siguiente ecuación lineal: $$4(x - 3) + 2 = 3(x + 1)$$", options: ["$x = 11$", "$x = 9$", "$x = 15$", "$x = 13$"], correct: 3, explanation: "$4x - 10 = 3x + 3 \\Rightarrow x = 13$ (Opción D)." },
+  { id: 13, topic: "Ecuaciones Planteamiento", q: "Un número sumado con su cuarta parte resulta en 45. ¿Cuál es dicho número?", options: ["36", "32", "40", "28"], correct: 0, explanation: "$x + \\frac{x}{4} = 45 \\Rightarrow \\frac{5x}{4} = 45 \\Rightarrow x = 36$ (Opción A)." },
+  { id: 14, topic: "Ecuaciones Planteamiento", q: "La suma de tres números enteros consecutivos es 96. Calcule el número intermedio.", options: ["31", "32", "33", "30"], correct: 1, explanation: "$3x = 96 \\Rightarrow x = 32$ (Opción B)." },
+  { id: 15, topic: "Ecuaciones Planteamiento", q: "Resuelva para $x$: $$\\frac{3x - 2}{4} = \\frac{x + 6}{2}$$", options: ["$x = 10$", "$x = 12$", "$x = 14$", "$x = 8$"], correct: 2, explanation: "$6x - 4 = 4x + 24 \\Rightarrow 2x = 28 \\Rightarrow x = 14$ (Opción C)." },
+  { id: 16, topic: "Ecuaciones Planteamiento", q: "El triple de un número disminuido en 12 equivale al doble del mismo número aumentado en 8. El número es:", options: ["16", "24", "18", "20"], correct: 3, explanation: "$3x - 12 = 2x + 8 \\Rightarrow x = 20$ (Opción D)." },
+  { id: 17, topic: "Ecuaciones Planteamiento", q: "Dos chaquetas cuestan juntas $110. Si una cuesta $30 más que la otra, ¿cuál es el precio de la más barata?", options: ["$40", "$35", "$45", "$50"], correct: 0, explanation: "$x + (x + 30) = 110 \\Rightarrow 2x = 80 \\Rightarrow x = 40$ (Opción A)." },
+  { id: 18, topic: "Ecuaciones Planteamiento", q: "En un examen de 40 preguntas, cada acierto otorga 5 puntos y cada error descuenta 2 puntos. Si contestó todo y obtuvo 130 puntos, ¿cuántas acertó?", options: ["28", "30", "32", "25"], correct: 1, explanation: "$5C - 2(40 - C) = 130 \\Rightarrow 7C = 210 \\Rightarrow C = 30$ (Opción B)." },
+  { id: 19, topic: "Ecuaciones Planteamiento", q: "La suma de dos números es 120 y su diferencia es 40. Determine el número menor.", options: ["50", "30", "40", "45"], correct: 2, explanation: "$\\frac{120 - 40}{2} = 40$ (Opción C)." },
+  { id: 20, topic: "Ecuaciones Planteamiento", q: "Una madre tiene el triple de la edad de su hija. Si la suma de sus edades es 48 años, ¿qué edad tiene la hija?", options: ["14 años", "10 años", "16 años", "12 años"], correct: 3, explanation: "$4x = 48 \\Rightarrow x = 12$ años (Opción D)." },
+  { id: 21, topic: "Ecuaciones Planteamiento", q: "Al restar 10 al cuádruple de un número, se obtiene el doble de dicho número sumado con 14. Halle el número.", options: ["12", "10", "14", "16"], correct: 0, explanation: "$4x - 10 = 2x + 14 \\Rightarrow 2x = 24 \\Rightarrow x = 12$ (Opción A)." },
+  { id: 22, topic: "Ecuaciones Planteamiento", q: "Se reparten $600 entre tres empleados. El segundo recibe el doble que el primero y el tercero el triple del primero. ¿Cuánto recibe el tercero?", options: ["$200", "$300", "$100", "$350"], correct: 1, explanation: "$6x = 600 \\Rightarrow x = 100$. Tercero = $3(100) = 300$ (Opción B)." },
+  { id: 23, topic: "Sistema de Ecuaciones", q: "Dado el sistema $3x + 2y = 16$ y $x - y = 2$, halle el valor de $y$:", options: ["4", "1", "2", "3"], correct: 2, explanation: "$3(y+2) + 2y = 16 \\Rightarrow 5y = 10 \\Rightarrow y = 2$ (Opción C)." },
+  { id: 24, topic: "Cálculo de Edades", q: "Carlos tiene el triple de la edad de Mateo. Si la diferencia de sus edades es 24 años, ¿cuántos años tiene Mateo?", options: ["10 años", "14 años", "8 años", "12 años"], correct: 3, explanation: "$2x = 24 \\Rightarrow x = 12$ años (Opción D)." },
+  { id: 25, topic: "Cálculo de Edades", q: "Hace 4 años la edad de Roberto era el cuádruple de la de Luis. Si hoy suman 33 años, ¿cuál es la edad actual de Luis?", options: ["9 años", "8 años", "10 años", "11 años"], correct: 0, explanation: "Hace 4 años sumaban 25 $\\Rightarrow 5x = 25 \\Rightarrow x = 5$. Hoy Luis tiene $5 + 4 = 9$ años (Opción A)." },
+  { id: 26, topic: "Cálculo de Edades", q: "Dentro de $m$ años la edad de Andrés será $p$ veces la de Beatriz. Hoy Andrés tiene el triple de años que Beatriz. ¿Cuál es la edad actual de Beatriz?", options: ["$$\\frac{m(p+1)}{3}$$", "$$\\frac{m(p-1)}{3-p}$$", "$$\\frac{mp}{3-p}$$", "$$\\frac{3m}{p-1}$$"], correct: 1, explanation: "$3B + m = p(B + m) \\Rightarrow B(3-p) = m(p-1) \\Rightarrow B = \\frac{m(p-1)}{3-p}$ (Opción B)." },
+  { id: 27, topic: "Razones y Proporciones", q: "La razón entre dos números es 4:7. Si el número mayor es 42, ¿cuál es el menor?", options: ["28", "21", "24", "18"], correct: 2, explanation: "$\\frac{4}{7} = \\frac{x}{42} \\Rightarrow x = 24$ (Opción C)." },
+  { id: 28, topic: "Razones y Proporciones", q: "En un taller, la relación entre autos y motocicletas es de 3 a 2. Si hay 18 autos, ¿cuántas motocicletas hay?", options: ["10", "15", "14", "12"], correct: 3, explanation: "$\\frac{3}{2} = \\frac{18}{M} \\Rightarrow M = 12$ (Opción D)." },
+  { id: 29, topic: "Razones y Proporciones", q: "Si $x:y = 3:4$ y $y:z = 5:6$, halle la razón $x:z$:", options: ["5:8", "3:6", "15:20", "5:6"], correct: 0, explanation: "$\\frac{x}{z} = \\frac{3}{4} \\cdot \\frac{5}{6} = \\frac{15}{24} = \\frac{5}{8}$ (Opción A)." },
+  { id: 30, topic: "Razones y Proporciones", q: "Dos números están en proporción 8:3. Si su diferencia es 35, calcule el número mayor.", options: ["48", "56", "64", "40"], correct: 1, explanation: "$5k = 35 \\Rightarrow k = 7$. Mayor = $8(7) = 56$ (Opción B)." },
+  { id: 31, topic: "Regla de 3 Compuesta", q: "Si 8 obreros construyen una cerca en 12 días trabajando 6 h/día, ¿cuántos días tardarán 9 obreros trabajando 8 h/día?", options: ["9 días", "10 días", "8 días", "6 días"], correct: 2, explanation: "Horas-hombre = $8 \\cdot 12 \\cdot 6 = 576$. Días = $576 / (9 \\cdot 8) = 8$ días (Opción C)." },
+  { id: 32, topic: "Regla de 3 Compuesta", q: "Si 4 bombas funcionando 5 horas diarias bombean 1500 m³ de agua, ¿cuántos m³ bombearán 6 bombas funcionando 4 horas diarias?", options: ["1600 m³", "2000 m³", "1500 m³", "1800 m³"], correct: 3, explanation: "$\\frac{1500}{20} = \\frac{X}{24} \\Rightarrow X = 1800$ m³ (Opción D)." },
+  { id: 33, topic: "Regla de 3 Compuesta", q: "Para pintar 240 m², 6 pintores tardan 8 días. ¿Cuántos días tardarán 8 pintores en pintar 300 m²?", options: ["7.5 días", "6 días", "8 días", "9 días"], correct: 0, explanation: "$\\frac{6 \\cdot 8}{240} = \\frac{8 \\cdot d}{300} \\Rightarrow d = 7.5$ días (Opción A)." },
+  { id: 34, topic: "Porcentajes y Proporcionalidad", q: "¿A cuánto equivale el 18% de 350?", options: ["54", "63", "72", "68"], correct: 1, explanation: "$350 \\times 0.18 = 63$ (Opción B)." },
+  { id: 35, topic: "Porcentajes y Proporcionalidad", q: "Un teléfono cuesta $200. Se le aplica un descuento del 15% y luego un recargo del 5%. ¿Precio final a pagar?", options: ["$180.00", "$175.00", "$178.50", "$182.00"], correct: 2, explanation: "$200 \\times 0.85 = 170 \\Rightarrow 170 \\times 1.05 = 178.50$ (Opción C)." },
+  { id: 36, topic: "Porcentajes y Proporcionalidad", q: "Halle la media proporcional entre 9 y 16.", options: ["15", "10", "14", "12"], correct: 3, explanation: "$x = \\sqrt{9 \\cdot 16} = 12$ (Opción D)." },
+  { id: 37, topic: "Porcentajes y Proporcionalidad", q: "Encuentre la tercera proporcional entre 4 y 12.", options: ["36", "24", "48", "32"], correct: 0, explanation: "$\\frac{4}{12} = \\frac{12}{x} \\Rightarrow 4x = 144 \\Rightarrow x = 36$ (Opción A)." },
+  { id: 38, topic: "Porcentajes y Proporcionalidad", q: "De un grupo de 60 estudiantes, 45 aprobaron la prueba. ¿Qué porcentaje representa?", options: ["80%", "75%", "70%", "85%"], correct: 1, explanation: "$\\frac{45}{60} = 0.75 = 75\\%$ (Opción B)." },
+  { id: 39, topic: "Media Aritmética", q: "La media de 5 números es 16. Si cuatro son 10, 14, 18 y 20, ¿cuál es el quinto?", options: ["16", "22", "18", "15"], correct: 2, explanation: "Total = $80$. Parcial = $62$. Quinto = $80 - 62 = 18$ (Opción C)." },
+  { id: 40, topic: "Media Aritmética", q: "Tres notas son 7, 8 y 10. ¿Qué nota necesita en el cuarto examen para promediar 8.5?", options: ["9.5", "10", "8.5", "9"], correct: 3, explanation: "Total necesario = $34$. Actual = $25$. Nota = $34 - 25 = 9$ (Opción D)." },
+  { id: 41, topic: "Combinatoria y Permutación", q: "¿De cuántas formas distintas se pueden acomodar 6 personas en una fila?", options: ["720", "120", "360", "504"], correct: 0, explanation: "$6! = 720$ (Opción A)." },
+  { id: 42, topic: "Combinatoria y Permutación", q: "Se debe seleccionar un grupo de 4 docentes de un total de 8. ¿Cuántas combinaciones son posibles?", options: ["56", "70", "112", "120"], correct: 1, explanation: "$C(8,4) = 70$ (Opción B)." },
+  { id: 43, topic: "Combinatoria y Permutación", q: "En un concurso con 10 participantes, ¿de cuántas maneras se premian los 3 primeros lugares?", options: ["120", "504", "720", "210"], correct: 2, explanation: "$P(10,3) = 10 \\times 9 \\times 8 = 720$ (Opción C)." },
+  { id: 44, topic: "Combinatoria y Permutación", q: "¿Cuántos códigos de 2 dígitos distintos se forman con {2, 4, 6, 8, 9}?", options: ["25", "15", "30", "20"], correct: 3, explanation: "$5 \\times 4 = 20$ (Opción D)." },
+  { id: 45, topic: "Combinatoria y Permutación", q: "Determine el número de parejas distintas que se forman eligiendo 2 elementos de 7.", options: ["21", "42", "14", "28"], correct: 0, explanation: "$C(7,2) = 21$ (Opción A)." },
+  { id: 46, topic: "Combinatoria y Permutación", q: "¿De cuántas maneras diferentes pueden sentarse 5 personas alrededor de una mesa circular?", options: ["120", "24", "60", "36"], correct: 1, explanation: "$(5-1)! = 4! = 24$ (Opción B)." },
+  { id: 47, topic: "Combinatoria y Permutación", q: "¿Cuántas palabras distintas se forman permutando las letras de 'MAMA'?", options: ["12", "24", "6", "4"], correct: 2, explanation: "$\\frac{4!}{2!2!} = 6$ (Opción C)." },
+  { id: 48, topic: "Combinatoria y Permutación", q: "En un torneo con 12 participantes, todos juegan entre sí una vez. ¿Cuántos partidos se juegan?", options: ["132", "72", "48", "66"], correct: 3, explanation: "$C(12,2) = 66$ (Opción D)." },
+  { id: 49, topic: "Combinatoria y Permutación", q: "Si 8 personas en una reunión se saludan una sola vez cada una, ¿cuántos apretones se dan?", options: ["28", "56", "32", "64"], correct: 0, explanation: "$C(8,2) = 28$ (Opción A)." },
+  { id: 50, topic: "Combinatoria y Permutación", q: "¿Cuántas claves numéricas de 3 dígitos diferentes se forman con los números del 1 al 8?", options: ["56", "336", "512", "280"], correct: 1, explanation: "$8 \\times 7 \\times 6 = 336$ (Opción B)." }
 ];
 
-// CLAVE DE ALMACENAMIENTO
-const STORAGE_KEY = 'UNL_NUMERICO_EXAM_STATE_V1';
+const STORAGE_KEY = 'UNL_NUMERICO_RECUPERACION_STATE_V2';
 
 // ESTADO GENERAL
 let studentName = "";
@@ -62,12 +61,12 @@ let userAnswers = {};
 let warningCount = 0;
 const MAX_WARNINGS = 3;
 let timerInterval = null;
-const TOTAL_EXAM_DURATION_SEC = 60 * 60; // 60 minutos en segundos
+const TOTAL_EXAM_DURATION_SEC = 50 * 60; // 50 minutos exactos
 let startTime = null;
 let isExamActive = false;
 let isCooldown = false;
 
-// REFERENCIAS DEL DOM
+// ELEMENTOS DOM
 const startForm = document.getElementById('start-form');
 const studentNameInput = document.getElementById('student-name');
 const startScreen = document.getElementById('start-screen');
@@ -92,7 +91,6 @@ const progressBarFill = document.getElementById('progress-bar-fill');
 const progressPercent = document.getElementById('progress-percent');
 const feedbackList = document.getElementById('feedback-list');
 
-// INICIALIZACIÓN
 window.addEventListener('DOMContentLoaded', () => {
   checkExistingSession();
 });
@@ -118,7 +116,7 @@ function checkExistingSession() {
         const remainingSeconds = TOTAL_EXAM_DURATION_SEC - elapsedSeconds;
 
         if (remainingSeconds <= 0) {
-          finishExam("Tiempo límite de 60 minutos agotado.", false, true);
+          finishExam("Tiempo límite de 50 minutos agotado.", false, true);
         } else {
           startScreen.classList.add('hidden');
           examApp.classList.remove('hidden');
@@ -169,14 +167,14 @@ startForm.addEventListener('submit', (e) => {
 btnPrev.addEventListener('click', () => navigate(-1));
 btnNext.addEventListener('click', () => navigate(1));
 btnFinish.addEventListener('click', () => {
-  if (confirm("¿Estás seguro de que deseas finalizar tu examen ahora?")) {
+  if (confirm("¿Estás seguro de que deseas finalizar tu examen de recuperación ahora?")) {
     finishExam("Evaluación completada voluntariamente por el estudiante.", false, true);
   }
 });
 btnDownloadPdf.addEventListener('click', () => window.print());
 
 btnRetryExam.addEventListener('click', () => {
-  if (confirm("¿Deseas reiniciar la evaluación y realizar un nuevo intento? Se borrarán tus respuestas anteriores.")) {
+  if (confirm("¿Deseas reiniciar el intento de recuperación? Se borrarán las respuestas actuales.")) {
     localStorage.removeItem(STORAGE_KEY);
     location.reload();
   }
@@ -307,7 +305,7 @@ function startTimer() {
     if (remainingSeconds <= 0) {
       clearInterval(timerInterval);
       timerText.innerText = "00:00";
-      finishExam("Tiempo límite de 60 minutos agotado.", false, true);
+      finishExam("Tiempo límite de 50 minutos agotado.", false, true);
       return;
     }
 
@@ -317,31 +315,50 @@ function startTimer() {
   }, 1000);
 }
 
-// CAPA DE SEGURIDAD KIOSKO (Mismo protocolo que en Física)
+// CAPA DE SEGURIDAD KIOSKO + ANTI-CAPTURA EN MÓVILES Y PC
 function setupSecurity() {
+  // Detección de ocultación o cambio de app (útil para móviles y PC)
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && isExamActive && !isCooldown) {
-      registerViolation("Salida del navegador o cambio de pestaña.");
+      document.body.classList.add('blur-protected');
+      registerViolation("Salida de la aplicación / Pestaña oculta.");
+    } else {
+      document.body.classList.remove('blur-protected');
     }
   });
 
+  // Pérdida de foco (capturas de pantalla con combinaciones de botones en móvil a menudo desenfocan la ventana)
   window.addEventListener('blur', () => {
     if (isExamActive && !isCooldown) {
-      registerViolation("Pérdida de foco de la ventana de evaluación.");
+      document.body.classList.add('blur-protected');
+      registerViolation("Intento de captura / Pérdida de foco en el dispositivo.");
     }
   });
 
+  window.addEventListener('focus', () => {
+    document.body.classList.remove('blur-protected');
+  });
+
+  // Salida de Pantalla Completa
   document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement && isExamActive && !isCooldown) {
       registerViolation("Salida del modo pantalla completa.");
     }
   });
 
+  // Bloqueos de eventos de mouse y táctiles sospechosos (p. ej. toque sostenido para guardar imagen)
   document.addEventListener('contextmenu', e => e.preventDefault());
   document.addEventListener('copy', e => e.preventDefault());
   document.addEventListener('cut', e => e.preventDefault());
   document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 2 && isExamActive && !isCooldown) { // Gestos multitáctiles de captura
+      e.preventDefault();
+      registerViolation("Gesto táctil no permitido (Posible captura de pantalla).");
+    }
+  }, { passive: false });
 
+  // Bloqueo de Teclado
   document.addEventListener('keydown', (e) => {
     if (!isExamActive || isCooldown) return;
 
@@ -353,7 +370,7 @@ function setupSecurity() {
       e.altKey
     ) {
       e.preventDefault();
-      registerViolation("Uso de atajos prohibidos o capturas de pantalla.");
+      registerViolation("Uso de atajos prohibidos o captura de pantalla.");
     }
   });
 }
@@ -365,10 +382,10 @@ function registerViolation(reason) {
   saveStateToStorage();
 
   if (warningCount >= MAX_WARNINGS) {
-    alert(`🚨 ADVERTENCIA FINAL (${warningCount}/${MAX_WARNINGS})\nMotivo: ${reason}\n\nHas superado el límite permitido. Evaluación suspendida.`);
+    alert(`🚨 ADVERTENCIA FINAL (${warningCount}/${MAX_WARNINGS})\nMotivo: ${reason}\n\nEvaluación suspendida por infracción grave de seguridad.`);
     finishExam(`Prueba suspendida por infracción de seguridad: ${reason} (Límite superado).`, true, true);
   } else {
-    alert(`⚠️ ADVERTENCIA DE SEGURIDAD (${warningCount}/${MAX_WARNINGS})\nMotivo: ${reason}\n\nPor favor regresa inmediatamente al examen.`);
+    alert(`⚠️ ADVERTENCIA DE SEGURIDAD (${warningCount}/${MAX_WARNINGS})\nMotivo: ${reason}\n\nVuelve de inmediato a la prueba.`);
     requestFullScreen();
     setTimeout(() => { isCooldown = false; }, 2500);
   }
